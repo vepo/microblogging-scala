@@ -1,10 +1,11 @@
 package microblogging
 
-import web.{Endpoint, Server, HttpResponse}
+import web.Method.GET
+import web.{Endpoint, HttpResponse, Server}
 
 @main
 def startMicroBlogging() =
-  val server = Server(Endpoint("/post", request => {
+  val server = Server(Endpoint(GET, "/post", request => {
     println("Processing: " + request)
     HttpResponse()
   }))
